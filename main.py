@@ -13,19 +13,15 @@ screen = pygame.display.set_mode((screen_width, screen_height))
 pygame.display.set_caption('Platformer')
 
 #подгружаем картинки
-sun_img = pygame.image.load('img/sun.png')
-bg_img = pygame.image.load('img/sky.png')
+sun_img = pygame.image.load('sun.png')
+bg_img = pygame.image.load('sky.png')
 tile_size = 34
 
-def draw_grid():
-    for line in range(0, 20):
-        pygame.draw.line(screen, (255, 255, 255), (0, line * tile_size), (screen_width,line * tile_size))
-        pygame.draw.line(screen, (255, 255, 255), (line * tile_size, 0), (line * tile_size, screen_height))
 
 class Player():
     def __init__(self, x, y):
 
-        img = pygame.image.load('img/guy1.png')
+        img = pygame.image.load('guy1.png')
         self.image = pygame.transform.scale(img, (40, 80))
         self.rect = self.image.get_rect()
         self.rect.x = x
@@ -68,8 +64,8 @@ class World():
   def __init__(self, data):
       self.tile_list = []
 
-      dirt_img = pygame.image.load('img/dirt.png')
-      grass_img = pygame.image.load('img/grass.png')
+      dirt_img = pygame.image.load('dirt.png')
+      grass_img = pygame.image.load('grass.png')
 
       row_count = 0
 
@@ -135,7 +131,6 @@ while run:
 
     world.draw()
     player.update()
-    draw_grid()
 
     # обработчик событий
     for event in pygame.event.get():
