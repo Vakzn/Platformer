@@ -41,6 +41,8 @@ class Player():
         if key[pygame.K_SPACE] and self.jumped == False:
             self.vel_y = -15
             self.jumped = True
+        if key[pygame.K_SPACE] == False:
+            self.jumped = False
         if key[pygame.K_LEFT]:
             dx -= 5
         if key[pygame.K_RIGHT]:
