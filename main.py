@@ -26,10 +26,13 @@ class Player():
     def __init__(self, x, y):
 
         img = pygame.image.load('img/guy1.png')
-        self.image = pygame.transform.scle(img, (40, 80))
-        self.rect = self.image.get.rect()
+        self.image = pygame.transform.scale(img, (40, 80))
+        self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
+
+    def update(self):
+        screen.blit(self.image, self.rect)
 
 
 class World():
@@ -90,6 +93,7 @@ world_data = [
 [1, 2, 2, 2, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1]
 ]
 
+player = Player(100, screen_height - 100)
 
 world = World(world_data)
 
@@ -101,6 +105,7 @@ while run:
     screen.blit(sun_img, (100, 100))
 
     world.draw()
+    player.update()
     draw_grid()
 
     # обработчик событий
