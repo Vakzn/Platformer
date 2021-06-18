@@ -17,8 +17,8 @@ tile_size = 50
 game_over = 0
 
 # load images
-sun_img = pygame.image.load('sun.png')
-bg_img = pygame.image.load('sky.png')
+sun_img = pygame.image.load('assets/sun.png')
+bg_img = pygame.image.load('assets/sky.png')
 
 
 class Player():
@@ -28,12 +28,12 @@ class Player():
         self.index = 0
         self.counter = 0
         for num in range(1, 5):
-            img_right = pygame.image.load(f'guy{num}.png')
+            img_right = pygame.image.load(f'assets/guy{num}.png')
             img_right = pygame.transform.scale(img_right, (40, 80))
             img_left = pygame.transform.flip(img_right, True, False)
             self.images_right.append(img_right)
             self.images_left.append(img_left)
-        self.dead_image = pygame.image.load('ghost.png')
+        self.dead_image = pygame.image.load('assets/ghost.png')
         self.image = self.images_right[self.index]
         self.rect = self.image.get_rect()
         self.rect.x = x
@@ -136,8 +136,8 @@ class World():
         self.tile_list = []
 
         # load images
-        dirt_img = pygame.image.load('dirt.png')
-        grass_img = pygame.image.load('grass.png')
+        dirt_img = pygame.image.load('assets/dirt.png')
+        grass_img = pygame.image.load('assets/grass.png')
 
         row_count = 0
         for row in data:
@@ -176,7 +176,7 @@ class World():
 class Enemy(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        self.image = pygame.image.load('blob.png')
+        self.image = pygame.image.load('assets/blob.png')
         self.rect = self.image.get_rect()
         self.rect.x = x
         self.rect.y = y
@@ -194,7 +194,7 @@ class Enemy(pygame.sprite.Sprite):
 class Lava(pygame.sprite.Sprite):
     def __init__(self, x, y):
         pygame.sprite.Sprite.__init__(self)
-        img = pygame.image.load('lava.png')
+        img = pygame.image.load('assets/lava.png')
         self.image = pygame.transform.scale(img, (tile_size, tile_size // 2))
         self.rect = self.image.get_rect()
         self.rect.x = x
