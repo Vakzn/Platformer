@@ -22,6 +22,14 @@ def draw_grid():
         pygame.draw.line(screen, (255, 255, 255), (0, line * tile_size), (screen_width,line * tile_size))
         pygame.draw.line(screen, (255, 255, 255), (line * tile_size, 0), (line * tile_size, screen_height))
 
+class Player():
+    def __init__(self, x, y):
+
+        img = pygame.image.load('img/guy1.png')
+        self.image = pygame.transform.scle(img, (40, 80))
+        self.rect = self.image.get.rect()
+        self.rect.x = x
+        self.rect.y = y
 
 
 class World():
